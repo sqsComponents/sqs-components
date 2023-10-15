@@ -1,0 +1,12 @@
+# Ignore the node_modules directory
+node_modules/
+
+
+# Ignore the .cache directory created by Parcel
+.cache/
+
+# Ignore any .env files which might contain sensitive information
+.env
+
+# Ignore the .DS_Store file (created by macOS)
+.DS_Store

@@ -1,0 +1,23 @@
+{
+  "name": "sqs-components",
+  "version": "1.0.0",
+  "description": "Set of squarespace components",
+  "scripts": {
+    "dev:modal": "parcel serve ./src/modal/index.html --open",
+    "build:modal": "parcel build ./src/modal/index.html --dist-dir dist/modal --no-content-hash",
+    "dev:list": "parcel serve ./src/list/index.html --open",
+    "build:list": "parcel build ./src/list/index.html --dist-dir dist/list --no-content-hash"
+  },
+  "keywords": [
+    "squarespace",
+    "components"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1",
+    "parcel": "^2.10.0",
+    "postcss": "^8.4.31"
+  }
+}
