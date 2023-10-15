@@ -94,13 +94,27 @@
     }
 
     getPropsValues() {
+      const modalBgColor = this.getAttribute("modalBgColor");
+      const modalTextColor = this.getAttribute("modalTextColor");
       const alignItems = this.getAttribute("alignItems");
       const justifyContent = this.getAttribute("justifyContent");
       const flexDirection = this.getAttribute("flexDirection");
       const modal = this.shadowRoot.querySelector(this.MODAL_CLASS_SELECTOR);
+      const modalElements = modal.querySelectorAll("*");
       const modalContent = this.shadowRoot.querySelector(
         this.CONTENT_CLASS_SELECTOR
       );
+
+      if (modalBgColor) {
+        modal.style.backgroundColor = modalBgColor;
+      }
+
+      if (modalTextColor) {
+        modal.style.color = modalTextColor;
+        modalElements.forEach((element) => {
+          element.style.color = modalTextColor;
+        });
+      }
 
       if (alignItems) {
         modalContent.style.alignItems = alignItems;

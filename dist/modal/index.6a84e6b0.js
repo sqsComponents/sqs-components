@@ -63,7 +63,7 @@
       text-decoration: none;
       cursor: pointer;
     }      
-    </style>`,s=`
+    </style>`,o=`
     <div class="sqs-custom-modal-overlay">
       <div class="sqs-custom-modal">
         <div class="sqs-custom-modal-content">
@@ -71,10 +71,10 @@
           <slot></slot>
         </div>
       </div>
-    </div>`;class o extends HTMLElement{OVERLAY_CLASS_SELECTOR=".sqs-custom-modal-overlay";MODAL_CLASS_SELECTOR=".sqs-custom-modal";CLOSE_CLASS_SELECTOR=".sqs-custom-modal-close";CONTENT_CLASS_SELECTOR=".sqs-custom-modal-content";constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=`
+    </div>`;class s extends HTMLElement{OVERLAY_CLASS_SELECTOR=".sqs-custom-modal-overlay";MODAL_CLASS_SELECTOR=".sqs-custom-modal";CLOSE_CLASS_SELECTOR=".sqs-custom-modal-close";CONTENT_CLASS_SELECTOR=".sqs-custom-modal-content";constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=`
     ${t}
-    ${s}
-    `}getPropsValues(){let t=this.getAttribute("alignItems"),s=this.getAttribute("justifyContent"),o=this.getAttribute("flexDirection"),e=this.shadowRoot.querySelector(this.MODAL_CLASS_SELECTOR),i=this.shadowRoot.querySelector(this.CONTENT_CLASS_SELECTOR);t&&(i.style.alignItems=t,e.style.alignItems=t),s&&(i.style.justifyContent=s,e.style.alignItems=t),o&&(i.style.flexDirection=o,e.style.flexDirection=o)}connectedCallback(){this.getPropsValues(),this.shadowRoot.querySelector(this.CLOSE_CLASS_SELECTOR).addEventListener("click",()=>{this.close()}),this.shadowRoot.querySelector(this.OVERLAY_CLASS_SELECTOR).addEventListener("click",t=>{t.target===t.currentTarget&&this.close()})}close(){let t=this.shadowRoot.querySelector(this.OVERLAY_CLASS_SELECTOR),s=this.shadowRoot.querySelector(this.MODAL_CLASS_SELECTOR);t.style.display="none",s.style.display="none",t.style.opacity=0,s.style.opacity=0}open(){let t=this.shadowRoot.querySelector(this.OVERLAY_CLASS_SELECTOR),s=this.shadowRoot.querySelector(this.MODAL_CLASS_SELECTOR);t.style.display="flex",s.style.display="block",setTimeout(()=>{t.style.opacity=1},200),setTimeout(()=>{s.style.opacity=1},500)}}customElements.define("sqs-custom-modal",o);/*
+    ${o}
+    `}getPropsValues(){let t=this.getAttribute("modalBgColor"),o=this.getAttribute("modalTextColor"),s=this.getAttribute("alignItems"),e=this.getAttribute("justifyContent"),l=this.getAttribute("flexDirection"),i=this.shadowRoot.querySelector(this.MODAL_CLASS_SELECTOR),a=i.querySelectorAll("*"),c=this.shadowRoot.querySelector(this.CONTENT_CLASS_SELECTOR);t&&(i.style.backgroundColor=t),o&&(i.style.color=o,a.forEach(t=>{t.style.color=o})),s&&(c.style.alignItems=s,i.style.alignItems=s),e&&(c.style.justifyContent=e,i.style.alignItems=s),l&&(c.style.flexDirection=l,i.style.flexDirection=l)}connectedCallback(){this.getPropsValues(),this.shadowRoot.querySelector(this.CLOSE_CLASS_SELECTOR).addEventListener("click",()=>{this.close()}),this.shadowRoot.querySelector(this.OVERLAY_CLASS_SELECTOR).addEventListener("click",t=>{t.target===t.currentTarget&&this.close()})}close(){let t=this.shadowRoot.querySelector(this.OVERLAY_CLASS_SELECTOR),o=this.shadowRoot.querySelector(this.MODAL_CLASS_SELECTOR);t.style.display="none",o.style.display="none",t.style.opacity=0,o.style.opacity=0}open(){let t=this.shadowRoot.querySelector(this.OVERLAY_CLASS_SELECTOR),o=this.shadowRoot.querySelector(this.MODAL_CLASS_SELECTOR);t.style.display="flex",o.style.display="block",setTimeout(()=>{t.style.opacity=1},200),setTimeout(()=>{o.style.opacity=1},500)}}customElements.define("sqs-custom-modal",s);/*
 How to use it:
 
 <sqs-custom-modal id="modal1">
