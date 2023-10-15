@@ -81,7 +81,7 @@
             display: flex;
             flex-wrap: wrap !important;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-start;
           }
         }
         </style>
