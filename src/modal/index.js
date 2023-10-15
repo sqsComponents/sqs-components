@@ -78,7 +78,7 @@
           font-size: ${closeIconSize};
           line-height: 1em;
           position: absolute;
-          top: 1px;
+          top: -2px;
           right: 14px;
           transition: color 0.3s ease;
           color: ${modalTextColor};
@@ -97,8 +97,8 @@
     
         @media screen and max-width(600px) {
           .sqs-custom-modal {
-            width: 80vw;
-            height: auto;
+            width: calc(100vw - 5%);
+            height: calc(100vh - 5%);
           }
     
           .sqs-custom-modal-content {

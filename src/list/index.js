@@ -34,6 +34,16 @@
             height: 100%;
             width: 100%;
           }
+
+          @media screen and max-width(600px) {
+            .sqs-custom-list-container {
+              flex-direction: column;
+              align-items: flex-start;
+              justify-content: center;
+              gap: initial;
+              flex-wrap: wrap;
+            }
+          }
   
           .sqs-custom-list-item {
             display: flex;
