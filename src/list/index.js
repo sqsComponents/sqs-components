@@ -33,7 +33,6 @@
             flex-wrap: nowrap;
             height: 100%;
             width: 100%;
-            overflow-y: auto;
           }
   
           .sqs-custom-list-item {
@@ -47,6 +46,8 @@
             width: 100%; 
             height: 100%;
             box-sizing: border-box;
+            display: block;
+            position: relative;
           }
 
           .sqs-custom-list-item img {
