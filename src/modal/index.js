@@ -71,7 +71,6 @@
           color: ${modalTextColor};
           justify-content: stretch;
           flex-direction: column;
-          flex: 1;
         }
     
         .sqs-custom-modal-close {
