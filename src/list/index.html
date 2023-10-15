@@ -3,48 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://sqscomponents.github.io/sqs-components/dist/modal/index.6a84e6b0.js" defer></script>
+    <script
+      src="https://sqscomponents.github.io/sqs-components/dist/modal/index.6a84e6b0.js"
+      defer
+    ></script>
     <script src="./index.js"></script>
   </head>
   <body>
-    <sqs-custom-modal id="1" flexDirection="row" alignItems="center" justifyContent="center">
-    <sqs-custom-list
-      flexDirection="row"
+    <style>
+      .sqsrte-small-modal {
+        position: absolute;
+        top: 100%;
+        text-align: center;
+        white-space: pre-wrap;
+        color: #000;
+      }
+
+      .sqsrte-small-wrapper {
+        display: block;
+        position: relative;
+      }
+
+      .sqs-custom-modal-title {
+        color: #009461;
+        margin-bottom: 60px;
+      }
+
+      .sqs-custom-modal {
+        background-color: #fff9e3;
+        color: #009461;
+      }
+    </style>
+
+    <sqs-custom-modal
+      id="1"
+      modalBgColor="#fff9e3"
+      modalTextColor="#009461"
+      flexDirection="column"
       alignItems="center"
-      justifyContent="center"
-      itemWidth="120px"
-      itemHeight="120px"
-      gap="10px"
+      justifyContent="flex-start"
     >
-      <div class="sqs-custom-list-item">
-        <img
-          src="https://images.squarespace-cdn.com/content/652ab798f3bc840e8c014fbc/f014a237-f3d1-4892-b36b-b6fbfd1d2e27/Doctor+Fox-02.png?content-type=image%2Fpng"
-        />
-      </div>
-      <div class="sqs-custom-list-item">
-        <a href="/">
-          <img
-            src="https://images.squarespace-cdn.com/content/652ab798f3bc840e8c014fbc/f014a237-f3d1-4892-b36b-b6fbfd1d2e27/Doctor+Fox-02.png?content-type=image%2Fpng"
-          />
-        </a>
-      </div>
-      <div class="sqs-custom-list-item">
-        <a href="/">
-          <img
-            src="https://images.squarespace-cdn.com/content/652ab798f3bc840e8c014fbc/f014a237-f3d1-4892-b36b-b6fbfd1d2e27/Doctor+Fox-02.png?content-type=image%2Fpng"
-          />
-        </a>
-      </div>
-      <div class="sqs-custom-list-item">
-        <a href="/">
-          <img
-            src="https://images.squarespace-cdn.com/content/652ab798f3bc840e8c014fbc/f014a237-f3d1-4892-b36b-b6fbfd1d2e27/Doctor+Fox-02.png?content-type=image%2Fpng"
-          />
-        </a>
-      </div>
-    </sqs-custom-list>
+      <h3 class="sqs-custom-modal-title">Znajdź nas</h3>
+
+      <sqs-custom-list
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-around"
+        itemWidth="25%"
+        gap="30px"
+      >
+        <div class="sqs-custom-list-item">
+          <a href="/" class="sqsrte-small-wrapper">
+            <img
+              src="https://images.squarespace-cdn.com/content/651da1d47bb9df4d49165784/7207f5c5-b047-4138-becf-227a9acd7976/eg_carrefour.png?content-type=image%2Fpng"
+            />
+            <p class="sqsrte-small sqsrte-small-modal">
+              CH Arkadia<br />CH Galeria Mokotów
+            </p>
+          </a>
+        </div>
+        <div class="sqs-custom-list-item">
+          <a href="/">
+            <img
+              src="https://images.squarespace-cdn.com/content/651da1d47bb9df4d49165784/d4306c5b-a3e0-4110-9051-44b6ecc67210/eg_organic-market.png?content-type=image%2Fpng"
+            />
+          </a>
+        </div>
+        <div class="sqs-custom-list-item">
+          <a href="/">
+            <img
+              src="https://images.squarespace-cdn.com/content/651da1d47bb9df4d49165784/ed210872-1374-432c-a3a1-06451195fc8f/eg_urban-vegan.png?content-type=image%2Fpng"
+            />
+          </a>
+        </div>
+        <div class="sqs-custom-list-item">
+          <a href="/">
+            <img
+              src="https://images.squarespace-cdn.com/content/651da1d47bb9df4d49165784/c8ea6fb3-e480-4a79-9375-43620e08d36f/eg_evergreen-logo-2.png?content-type=image%2Fpng"
+            />
+          </a>
+        </div>
+      </sqs-custom-list>
     </sqs-custom-modal>
-    <button onclick="document.getElementById('1').open()">open</button>
-    </div>
+    <button id="test" onclick="document.getElementById('1').open()">
+      open
+    </button>
   </body>
 </html>

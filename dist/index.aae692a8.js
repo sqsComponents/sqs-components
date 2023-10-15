@@ -1,28 +1,25 @@
 {
-  class SqsCustomModal extends HTMLElement {
-    OVERLAY_CLASS_SELECTOR = ".sqs-custom-modal-overlay";
-    MODAL_CLASS_SELECTOR = ".sqs-custom-modal";
-    CLOSE_CLASS_SELECTOR = ".sqs-custom-modal-close";
-    CONTENT_CLASS_SELECTOR = ".sqs-custom-modal-content";
-
-    constructor() {
-      super();
-
-      this.attachShadow({ mode: "open" });
-    }
-
-    getPropsValues() {
-      const modalTitle = this.getAttribute("modalTitle");
-      const modalTitlePosition =
-        this.getAttribute("modalTitlePosition") || "center";
-      const closeIconSize = this.getAttribute("closeIconSize") || "40px";
-      const modalBgColor = this.getAttribute("modalBgColor") || "#ffffff";
-      const modalTextColor = this.getAttribute("modalTextColor") || "#000000";
-      const modalWidth = this.getAttribute("modalWidth") || "600px";
-      const modalHeight = this.getAttribute("modalHeight") || "400px";
-      const modalPadding = this.getAttribute("modalPadding") || "30px 40px";
-
-      this.shadowRoot.innerHTML = `
+    class SqsCustomModal extends HTMLElement {
+        OVERLAY_CLASS_SELECTOR = ".sqs-custom-modal-overlay";
+        MODAL_CLASS_SELECTOR = ".sqs-custom-modal";
+        CLOSE_CLASS_SELECTOR = ".sqs-custom-modal-close";
+        CONTENT_CLASS_SELECTOR = ".sqs-custom-modal-content";
+        constructor(){
+            super();
+            this.attachShadow({
+                mode: "open"
+            });
+        }
+        getPropsValues() {
+            const modalTitle = this.getAttribute("modalTitle");
+            const modalTitlePosition = this.getAttribute("modalTitlePosition") || "center";
+            const closeIconSize = this.getAttribute("closeIconSize") || "40px";
+            const modalBgColor = this.getAttribute("modalBgColor") || "#ffffff";
+            const modalTextColor = this.getAttribute("modalTextColor") || "#000000";
+            const modalWidth = this.getAttribute("modalWidth") || "600px";
+            const modalHeight = this.getAttribute("modalHeight") || "400px";
+            const modalPadding = this.getAttribute("modalPadding") || "30px 40px";
+            this.shadowRoot.innerHTML = `
         <style>
         * {
           box-sizing: border-box;
@@ -113,68 +110,45 @@
           <div class="sqs-custom-modal">
             <div class="sqs-custom-modal-content">
               <span class="sqs-custom-modal-close">&times;</span>
-              ${
-                modalTitle
-                  ? `<h3 style="align-items: center;">${modalTitle}</h3>`
-                  : ""
-              }
+              ${modalTitle ? `<h3 style="align-items: center;">${modalTitle}</h3>` : ""}
               <slot></slot>
             </div>
           </div>
         </div>
       `;
+        }
+        connectedCallback() {
+            this.getPropsValues();
+            this.shadowRoot.querySelector(this.CLOSE_CLASS_SELECTOR).addEventListener("click", ()=>{
+                this.close();
+            });
+            this.shadowRoot.querySelector(this.OVERLAY_CLASS_SELECTOR).addEventListener("click", (e)=>{
+                if (e.target === e.currentTarget) this.close();
+            });
+        }
+        close() {
+            const modalOverlay = this.shadowRoot.querySelector(this.OVERLAY_CLASS_SELECTOR);
+            const modal = this.shadowRoot.querySelector(this.MODAL_CLASS_SELECTOR);
+            modalOverlay.style.display = "none";
+            modal.style.display = "none";
+            modalOverlay.style.opacity = 0;
+            modal.style.opacity = 0;
+        }
+        open() {
+            const modalOverlay = this.shadowRoot.querySelector(this.OVERLAY_CLASS_SELECTOR);
+            const modal = this.shadowRoot.querySelector(this.MODAL_CLASS_SELECTOR);
+            modalOverlay.style.display = "flex";
+            modal.style.display = "block";
+            setTimeout(()=>{
+                modalOverlay.style.opacity = 1;
+            }, 200);
+            setTimeout(()=>{
+                modal.style.opacity = 1;
+            }, 500);
+        }
     }
-
-    connectedCallback() {
-      this.getPropsValues();
-
-      this.shadowRoot
-        .querySelector(this.CLOSE_CLASS_SELECTOR)
-        .addEventListener("click", () => {
-          this.close();
-        });
-
-      this.shadowRoot
-        .querySelector(this.OVERLAY_CLASS_SELECTOR)
-        .addEventListener("click", (e) => {
-          if (e.target === e.currentTarget) {
-            this.close();
-          }
-        });
-    }
-
-    close() {
-      const modalOverlay = this.shadowRoot.querySelector(
-        this.OVERLAY_CLASS_SELECTOR
-      );
-      const modal = this.shadowRoot.querySelector(this.MODAL_CLASS_SELECTOR);
-      modalOverlay.style.display = "none";
-      modal.style.display = "none";
-      modalOverlay.style.opacity = 0;
-      modal.style.opacity = 0;
-    }
-
-    open() {
-      const modalOverlay = this.shadowRoot.querySelector(
-        this.OVERLAY_CLASS_SELECTOR
-      );
-      const modal = this.shadowRoot.querySelector(this.MODAL_CLASS_SELECTOR);
-      modalOverlay.style.display = "flex";
-      modal.style.display = "block";
-
-      void setTimeout(() => {
-        modalOverlay.style.opacity = 1;
-      }, 200);
-
-      void setTimeout(() => {
-        modal.style.opacity = 1;
-      }, 500);
-    }
-  }
-
-  customElements.define("sqs-custom-modal", SqsCustomModal);
-
-  /*
+    customElements.define("sqs-custom-modal", SqsCustomModal);
+/*
 How to use it:
 
 <sqs-custom-modal id="modal1">
@@ -184,9 +158,7 @@ How to use it:
 <button onclick="document.getElementById('modal1').open()">
   Open Modal
 </button>
-*/
-
-  /*
+*/ /*
 How to use props:
 
 <sqs-custom-modal 
@@ -201,5 +173,5 @@ How to use props:
 <button onclick="document.getElementById('modal1').open()">
   Open Modal
 </button>
-*/
-}
+*/ }
+//# sourceMappingURL=index.aae692a8.js.map
