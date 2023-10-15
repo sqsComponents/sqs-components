@@ -20,6 +20,7 @@
     }
 
     .sqs-custom-modal {
+      border-radius: 25px;
       z-index: 9999;
       display: none;
       z-index: 1;
@@ -42,11 +43,10 @@
     .sqs-custom-modal-close {
       color: #ababab;
       float: right;
-      font-weight: bold;
-      font-size: 22px;
+      font-size: 60px;
       line-height: 1em;
       position: absolute;
-      top: 10px;
+      top: 4px;
       right: 14px;
       transition: color 0.3s ease;
     }
@@ -63,6 +63,18 @@
       text-decoration: none;
       cursor: pointer;
     }      
+
+    @media screen and max-width(600px) {
+      .sqs-custom-modal {
+        width: 80vw;
+        height: auto;
+      }
+      
+      .sqs-custom-modal-content {
+        display: flex;
+        flex-wrap: wrap !important;
+      }
+    }
     </style>`,o=`
     <div class="sqs-custom-modal-overlay">
       <div class="sqs-custom-modal">
