@@ -30,6 +30,8 @@
       const alignItems = this.attr("alignItems", "stretch");
       const justifyContent = this.attr("justifyContent", "flex-start");
       const gap = this.attr("gap", "0");
+      const itemWidth = this.attr("itemWidth", "auto");
+      const itemHeight = this.attr("itemHeight", "auto");
 
       return `
           <style>
@@ -48,22 +50,11 @@
               flex-wrap: nowrap;
               height: 100%;
               width: 100%;
+              flex: 1;
             }
-            @media screen and (max-width: 600px) {
-              ${SqsCustomList.LIST_CONTAINER_SELECTOR} {
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: center;
-                gap: initial;
-                flex-wrap: wrap;
-                border: 1px solid blue;
-                height: auto;
-                flex: 1;
-              }
-            }
+
             ${SqsCustomList.LIST_ITEM_SELECTOR} {
               display: flex;
-              // flex: 1;
               text-align: center;
             }
             ${SqsCustomList.LIST_ITEM_SELECTOR} a {
@@ -78,6 +69,14 @@
               max-height: 100%;
               object-fit: contain;
               vertical-align: middle;
+            }
+
+            @media screen and (max-width: 600px) {
+              ${SqsCustomList.LIST_CONTAINER_SELECTOR} {
+                flex-direction: column-reverse;
+                gap: 40px;
+                flex-wrap: wrap;
+              }
             }
           </style>
           
@@ -111,13 +110,13 @@
           node.classList &&
           node.classList.contains(SqsCustomList.LIST_ITEM_CLASS)
         ) {
-          const itemWidth = this.attr("itemWidth", "auto");
-          const itemHeight = this.attr("itemHeight", "auto");
+          // const itemWidth = this.attr("itemWidth", "auto");
+          // const itemHeight = this.attr("itemHeight", "auto");
 
-          if (itemWidth && itemHeight) {
-            node.style.width = itemWidth;
-            node.style.height = itemHeight;
-          }
+          // if (itemWidth && itemHeight) {
+          //   node.style.width = itemWidth;
+          //   node.style.height = itemHeight;
+          // }
 
           const imgElement = node.querySelector("img");
 

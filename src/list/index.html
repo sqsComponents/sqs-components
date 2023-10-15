@@ -16,8 +16,6 @@
         top: 100%;
         text-align: center;
         color: #009461;
-        padding: 0;
-        width: 100%;
       }
 
       .sqsrte-small-wrapper {
@@ -33,6 +31,27 @@
 
       .a-disabled {
         pointer-events: none;
+      }
+
+      .sqs-custom-list-item {
+        display: flex;
+        width: 25%;
+        height: auto;
+        position: relative;
+        margin: 0 auto;
+      }
+
+      @media screen and (max-width: 600px) {
+        .sqs-custom-list-item {
+          width: 100%;
+        }
+
+        .sqs-custom-list-item a {
+          width: 50%;
+
+          /* text-align: center; */
+          margin: 0 auto;
+        }
       }
     </style>
 
@@ -51,8 +70,8 @@
       <sqs-custom-list
         flexDirection="row"
         alignItems="center"
-        justifyContent="space-between"
-        itemWidth="20%"
+        justifyContent="space-around"
+        itemWidth="25%"
         gap="30px"
       >
         <div class="sqs-custom-list-item">
