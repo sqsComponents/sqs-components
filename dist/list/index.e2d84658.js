@@ -1,4 +1,4 @@
-{class t extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}getPropsValuesAndRenderList(){let t=this.getAttribute("flexDirection")||"row",e=this.getAttribute("alignItems")||"stretch",s=this.getAttribute("justifyContent")||"flex-start",i=this.getAttribute("itemWidth")||"auto",l=this.getAttribute("itemHeight")||"auto",o=this.getAttribute("gap")||"0";this.shadowRoot.innerHTML=`
+{class t extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}getPropsValuesAndRenderList(){let t=this.getAttribute("flexDirection")||"row",e=this.getAttribute("alignItems")||"stretch",i=this.getAttribute("justifyContent")||"flex-start",s=this.getAttribute("itemWidth")||"auto",l=this.getAttribute("itemHeight")||"auto",o=this.getAttribute("gap")||"0";this.shadowRoot.innerHTML=`
         <style>
           * {
             box-sizing: border-box;
@@ -11,12 +11,11 @@
             list-style-type: none;
             flex-direction: ${t};
             align-items: ${e};
-            justify-content: ${s};
+            justify-content: ${i};
             gap: ${o};
             flex-wrap: nowrap;
             height: 100%;
             width: 100%;
-            overflow-y: auto;
           }
   
           .sqs-custom-list-item {
@@ -30,6 +29,8 @@
             width: 100%; 
             height: 100%;
             box-sizing: border-box;
+            display: block;
+            position: relative;
           }
 
           .sqs-custom-list-item img {
@@ -43,7 +44,7 @@
         <div class="sqs-custom-list-container">
           <slot></slot>
         </div>
-      `;let n=this.shadowRoot.querySelector("slot");n.addEventListener("slotchange",()=>{let t=n.assignedNodes();t.forEach(t=>{if(t.classList&&t.classList.contains("sqs-custom-list-item")){i&&l&&(t.style.width=i,t.style.height=l);let e=t.querySelector("img");e&&(e.style.objectFit="contain",e.style.maxWidth="100%",e.style.maxHeight="100%",e.style.verticalAlign="middle")}})})}connectedCallback(){this.getPropsValuesAndRenderList()}}customElements.define("sqs-custom-list",t);/*
+      `;let n=this.shadowRoot.querySelector("slot");n.addEventListener("slotchange",()=>{let t=n.assignedNodes();t.forEach(t=>{if(t.classList&&t.classList.contains("sqs-custom-list-item")){s&&l&&(t.style.width=s,t.style.height=l);let e=t.querySelector("img");e&&(e.style.objectFit="contain",e.style.maxWidth="100%",e.style.maxHeight="100%",e.style.verticalAlign="middle")}})})}connectedCallback(){this.getPropsValuesAndRenderList()}}customElements.define("sqs-custom-list",t);/*
   How to use it:
   
   <sqs-custom-list 
