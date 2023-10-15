@@ -15,8 +15,9 @@
         position: absolute;
         top: 100%;
         text-align: center;
-        white-space: pre-wrap;
-        color: #000;
+        color: #009461;
+        padding: 0;
+        width: 100%;
       }
 
       .sqsrte-small-wrapper {
@@ -27,11 +28,11 @@
       .sqs-custom-modal-title {
         color: #009461;
         margin-bottom: 60px;
+        text-align: center;
       }
 
-      .sqs-custom-modal {
-        background-color: #fff9e3;
-        color: #009461;
+      .a-disabled {
+        pointer-events: none;
       }
     </style>
 
@@ -41,19 +42,21 @@
       modalTextColor="#009461"
       flexDirection="column"
       alignItems="center"
-      justifyContent="flex-start"
+      justifyContent="center"
+      closeIconSize="60px"
+      modalHeight="350px"
     >
       <h3 class="sqs-custom-modal-title">Znajdź nas</h3>
 
       <sqs-custom-list
         flexDirection="row"
         alignItems="center"
-        justifyContent="space-around"
-        itemWidth="25%"
+        justifyContent="space-between"
+        itemWidth="20%"
         gap="30px"
       >
         <div class="sqs-custom-list-item">
-          <a href="/" class="sqsrte-small-wrapper">
+          <a href="/" class="sqsrte-small-wrapper a-disabled">
             <img
               src="https://images.squarespace-cdn.com/content/651da1d47bb9df4d49165784/7207f5c5-b047-4138-becf-227a9acd7976/eg_carrefour.png?content-type=image%2Fpng"
             />
