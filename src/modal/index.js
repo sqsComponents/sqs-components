@@ -95,7 +95,7 @@
           cursor: pointer;
         }      
     
-        @media screen and max-width(600px) {
+        @media screen and (max-width: 600px)) {
           .sqs-custom-modal {
             width: calc(100vw - 5%);
             height: calc(100vh - 5%);

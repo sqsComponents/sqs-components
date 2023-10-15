@@ -35,7 +35,7 @@
             width: 100%;
           }
 
-          @media screen and max-width(600px) {
+          @media screen and (max-width: 600px) {
             .sqs-custom-list-container {
               flex-direction: column;
               align-items: flex-start;
