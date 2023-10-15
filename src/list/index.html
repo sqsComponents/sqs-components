@@ -3,15 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://sqscomponents.github.io/sqs-components/dist/modal/index.6a84e6b0.js" defer></script>
     <script src="./index.js"></script>
   </head>
   <body>
+    <sqs-custom-modal id="1" flexDirection="row" alignItems="center" justifyContent="center">
     <sqs-custom-list
       flexDirection="row"
       alignItems="center"
       justifyContent="center"
-      itemWidth="50px"
-      itemHeight="50px"
+      itemWidth="120px"
+      itemHeight="120px"
       gap="10px"
     >
       <div class="sqs-custom-list-item">
@@ -33,6 +35,16 @@
           />
         </a>
       </div>
+      <div class="sqs-custom-list-item">
+        <a href="/">
+          <img
+            src="https://images.squarespace-cdn.com/content/652ab798f3bc840e8c014fbc/f014a237-f3d1-4892-b36b-b6fbfd1d2e27/Doctor+Fox-02.png?content-type=image%2Fpng"
+          />
+        </a>
+      </div>
     </sqs-custom-list>
+    </sqs-custom-modal>
+    <button onclick="document.getElementById('1').open()">open</button>
+    </div>
   </body>
 </html>

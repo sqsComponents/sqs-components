@@ -38,8 +38,22 @@
   
           .sqs-custom-list-item {
             display: flex;
-            padding: 0;
-            margin: 0;
+            flex: 1;
+            text-align: center;
+          }
+
+          .sqs-custom-list-item a {
+            display: inline-block; 
+            width: 100%; 
+            height: 100%;
+            box-sizing: border-box;
+          }
+
+          .sqs-custom-list-item img {
+            max-width: 100%; 
+            max-height: 100%; 
+            object-fit: contain; 
+            vertical-align: middle;
           }
         </style>
   
@@ -57,15 +71,18 @@
             node.classList &&
             node.classList.contains("sqs-custom-list-item")
           ) {
-            node.style.width = itemWidth;
-            node.style.height = itemHeight;
+            if (itemWidth && itemHeight) {
+              node.style.width = itemWidth;
+              node.style.height = itemHeight;
+            }
 
             const imgElement = node.querySelector("img");
 
             if (imgElement) {
-              imgElement.style.objectFit = "cover";
-              imgElement.style.width = itemWidth;
-              imgElement.style.height = itemHeight;
+              imgElement.style.objectFit = "contain";
+              imgElement.style.maxWidth = "100%";
+              imgElement.style.maxHeight = "100%";
+              imgElement.style.verticalAlign = "middle";
             }
           }
         });
