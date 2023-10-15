@@ -78,7 +78,7 @@
           font-size: ${closeIconSize};
           line-height: 1em;
           position: absolute;
-          top: 4px;
+          top: 1px;
           right: 14px;
           transition: color 0.3s ease;
           color: ${modalTextColor};

@@ -23,7 +23,6 @@
   
           .sqs-custom-list-container {
             display: flex;
-            flex: 1;
             margin: 0;
             padding: 0;
             list-style-type: none;
