@@ -16,11 +16,16 @@
       const modalTitlePosition =
         this.getAttribute("modalTitlePosition") || "center";
       const closeIconSize = this.getAttribute("closeIconSize") || "40px";
+      const closeIconPosition =
+        this.getAttribute("closeIconPosition") || "0px, 14px";
       const modalBgColor = this.getAttribute("modalBgColor") || "#ffffff";
       const modalTextColor = this.getAttribute("modalTextColor") || "#000000";
       const modalWidth = this.getAttribute("modalWidth") || "600px";
       const modalHeight = this.getAttribute("modalHeight") || "400px";
       const modalPadding = this.getAttribute("modalPadding") || "30px 40px";
+      const [closeIconTop, closeIconRight] = closeIconPosition
+        .split(", ")
+        .map((value) => value.trim());
 
       this.shadowRoot.innerHTML = `
         <style>
@@ -78,8 +83,8 @@
           font-size: ${closeIconSize};
           line-height: 1em;
           position: absolute;
-          top: -2px;
-          right: 14px;
+          top: ${closeIconTop};
+          right: ${closeIconRight};
           transition: color 0.3s ease;
           color: ${modalTextColor};
         }
@@ -95,7 +100,7 @@
           cursor: pointer;
         }      
     
-        @media screen and (max-width: 600px)) {
+        @media screen and (max-width: 600px) {
           .sqs-custom-modal {
             width: calc(100vw - 5%);
             height: calc(100vh - 5%);
@@ -104,6 +109,8 @@
           .sqs-custom-modal-content {
             display: flex;
             flex-wrap: wrap !important;
+            align-items: center;
+            justify-content: space-between;
           }
         }
         </style>

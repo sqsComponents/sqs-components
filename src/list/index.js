@@ -42,6 +42,7 @@
               justify-content: center;
               gap: initial;
               flex-wrap: wrap;
+              border: 1px solid red;
             }
           }
   

@@ -1,8 +1,8 @@
-{class t extends HTMLElement{OVERLAY_CLASS_SELECTOR=".sqs-custom-modal-overlay";MODAL_CLASS_SELECTOR=".sqs-custom-modal";CLOSE_CLASS_SELECTOR=".sqs-custom-modal-close";CONTENT_CLASS_SELECTOR=".sqs-custom-modal-content";constructor(){super(),this.attachShadow({mode:"open"})}getPropsValues(){let t=this.getAttribute("modalTitle"),o=this.getAttribute("modalTitlePosition")||"center",s=this.getAttribute("closeIconSize")||"40px",e=this.getAttribute("modalBgColor")||"#ffffff",i=this.getAttribute("modalTextColor")||"#000000",l=this.getAttribute("modalWidth")||"600px",a=this.getAttribute("modalHeight")||"400px",c=this.getAttribute("modalPadding")||"30px 40px";this.shadowRoot.innerHTML=`
+{class t extends HTMLElement{OVERLAY_CLASS_SELECTOR=".sqs-custom-modal-overlay";MODAL_CLASS_SELECTOR=".sqs-custom-modal";CLOSE_CLASS_SELECTOR=".sqs-custom-modal-close";CONTENT_CLASS_SELECTOR=".sqs-custom-modal-content";constructor(){super(),this.attachShadow({mode:"open"})}getPropsValues(){let t=this.getAttribute("modalTitle"),o=this.getAttribute("modalTitlePosition")||"center",s=this.getAttribute("closeIconSize")||"40px",e=this.getAttribute("closeIconPosition")||"0px, 14px",i=this.getAttribute("modalBgColor")||"#ffffff",l=this.getAttribute("modalTextColor")||"#000000",a=this.getAttribute("modalWidth")||"600px",c=this.getAttribute("modalHeight")||"400px",n=this.getAttribute("modalPadding")||"30px 40px",[r,d]=e.split(", ").map(t=>t.trim());this.shadowRoot.innerHTML=`
         <style>
         * {
           box-sizing: border-box;
-          color: ${i};
+          color: ${l};
         }
     
         .sqs-custom-modal-overlay {
@@ -25,13 +25,13 @@
           z-index: 9999;
           display: none;
           z-index: 1;
-          width: ${l};
-          height: ${a};
+          width: ${a};
+          height: ${c};
           overflow: auto;
-          background-color: ${e};
-          color: ${i};
+          background-color: ${i};
+          color: ${l};
           position: relative;
-          padding: ${c};
+          padding: ${n};
           opacity: 0;
           transition: opacity 0.3s ease;
         }
@@ -44,7 +44,7 @@
           display: flex;
           width: 100%;
           height: 100%;
-          color: ${i};
+          color: ${l};
           justify-content: stretch;
           flex-direction: column;
         }
@@ -54,10 +54,10 @@
           font-size: ${s};
           line-height: 1em;
           position: absolute;
-          top: -2px;
-          right: 14px;
+          top: ${r};
+          right: ${d};
           transition: color 0.3s ease;
-          color: ${i};
+          color: ${l};
         }
     
         .sqs-custom-modal-close:hover {
@@ -71,7 +71,7 @@
           cursor: pointer;
         }      
     
-        @media screen and (max-width: 600px)) {
+        @media screen and (max-width: 600px) {
           .sqs-custom-modal {
             width: calc(100vw - 5%);
             height: calc(100vh - 5%);
@@ -80,6 +80,8 @@
           .sqs-custom-modal-content {
             display: flex;
             flex-wrap: wrap !important;
+            align-items: center;
+            justify-content: space-between;
           }
         }
         </style>
